@@ -44,7 +44,14 @@ const aceProviders = [
 |   { Route: 'Adonis/Src/Route' }
 |
 */
-const aliases = {}
+const aliases = {
+  Users: 'App/Models/User',
+  Customer: 'App/Models/Customer',
+  Project: 'App/Models/Project',
+  Task: 'App/Models/Task',
+  Token: 'App/Models/Token',
+  FindCustomer: 'App/Middleware/FindCustomer',
+}
 
 /*
 |--------------------------------------------------------------------------
