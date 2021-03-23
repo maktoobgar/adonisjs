@@ -1,6 +1,6 @@
 "use strict";
 
-const Customer = use("App/Models/Customer");
+const Customer = use("Customer");
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
@@ -61,17 +61,11 @@ class CustomerController {
    * @param {View} ctx.view
    */
   async show({ params, request, response, view }) {
-    const { id } = params;
-    const customer = await Customer.find(id);
-    if (customer) {
-      response.status(200).json({
-        message: "OK",
-        data: customer,
-      });
-      return;
-    }
-    response.status(404).json({
-      message: "Not Found",
+    const { customer } = params;
+    console.log(customer);
+    response.status(200).json({
+      message: "OK",
+      data: customer,
     });
   }
 
@@ -84,21 +78,13 @@ class CustomerController {
    * @param {Response} ctx.response
    */
   async update({ params, request, response }) {
-    const { id } = params;
-    const customer = await Customer.find(id);
-    if (customer) {
-      const { name, description } = request.post();
-      if (name) customer.name = name;
-      if (description) customer.description = description;
-      await customer.save();
-      response.status(200).json({
-        message: "OK",
-        data: customer,
-      });
-      return;
-    }
-    response.status(404).json({
-      message: "Not Found",
+    const { customer, name, description } = request.post();
+    if (name) customer.name = name;
+    if (description) customer.description = description;
+    await customer.save();
+    response.status(200).json({
+      message: "OK",
+      data: customer,
     });
   }
 
@@ -111,16 +97,9 @@ class CustomerController {
    * @param {Response} ctx.response
    */
   async destroy({ params, request, response }) {
-    const { id } = params;
-    const customer = await Customer.find(id);
-    if (customer) {
-      await customer.delete();
-      response.status(204).json();
-      return;
-    }
-    response.status(404).json({
-      message: "Not Found",
-    });
+    const { customer } = params;
+    await customer.delete();
+    response.status(204).json();
   }
 }
 

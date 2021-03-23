@@ -22,8 +22,8 @@ Route.get("/", () => {
 
 Route.group(() => {
   Route.get("/", "CustomerController.index");
-  Route.get("/:id", "CustomerController.show");
+  Route.get("/:id", "CustomerController.show").middleware(['findCustomer']);
   Route.post("/", "CustomerController.store");
-  Route.patch("/:id", "CustomerController.update");
-  Route.delete("/:id", "CustomerController.destroy");
+  Route.patch("/:id", "CustomerController.update").middleware(['findCustomer']);
+  Route.delete("/:id", "CustomerController.destroy").middleware(['findCustomer']);
 }).prefix('/customers');
