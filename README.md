@@ -4,16 +4,16 @@
 
 <p align="left">
     <a href="https://nodejs.org/en/">
-        <img alt="mysql" src="https://img.shields.io/github/v/release/nodejs/node?label=nodejs&logo=javascript">
+        <img alt="nodejs" src="https://img.shields.io/github/v/release/nodejs/node?label=nodejs&logo=javascript">
     </a>
     <a href="https://www.npmjs.com/package/npm">
-        <img alt="Django" src="https://img.shields.io/npm/v/npm?label=npm&logo=npm">
+        <img alt="npm" src="https://img.shields.io/npm/v/npm?label=npm&logo=npm">
     </a>
     <a href="https://www.mysql.com/downloads/">
         <img alt="mysql" src="https://img.shields.io/github/v/tag/mysql/mysql-server?label=mysql&logo=mysql&logoColor=white">
     </a>
     <a href="https://www.npmjs.com/package/adonis">
-        <img alt="Python" src="https://img.shields.io/npm/v/adonis?label=adonis&logo=npm">
+        <img alt="adonis" src="https://img.shields.io/npm/v/adonis?label=adonis&logo=npm">
     </a>
 </p>
 
