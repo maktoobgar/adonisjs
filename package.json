@@ -17,9 +17,12 @@
   },
   "dependencies": {
     "@adonisjs/core": "^5.1.7",
+    "@adonisjs/lucid": "^14.2.0",
     "@adonisjs/repl": "^3.1.2",
+    "luxon": "^1.27.0",
     "proxy-addr": "^2.0.6",
     "reflect-metadata": "^0.1.13",
-    "source-map-support": "^0.5.19"
+    "source-map-support": "^0.5.19",
+    "sqlite3": "^5.0.2"
   }
 }

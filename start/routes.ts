@@ -23,3 +23,11 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', async () => {
   return { hello: 'world' }
 })
+
+Route
+  .get('docs/:id', ({ params, request, response, logger }) => {
+    logger.info(params.id)
+    logger.info(request.completeUrl())
+    response.send({'accepted': params.id})
+  })
+  .where('id', /^[1-9][0-9]*$/);
