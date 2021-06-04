@@ -31,3 +31,14 @@ Route
     response.send({'accepted': params.id})
   })
   .where('id', /^[1-9][0-9]*$/);
+
+Route.group(() => {
+  Route
+    .post('login', 'UsersController.login')
+    .as('login')
+    .middleware('hasBody')
+  Route
+    .post('signup', 'UsersController.signup')
+    .as('signup')
+    .middleware('hasBody')
+}).prefix('auth')
