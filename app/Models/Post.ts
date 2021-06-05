@@ -7,10 +7,10 @@ export default class Post extends BaseModel {
   public id: number
 
   @column()
-  public title: String
+  public title: string
 
   @column()
-  public context: String
+  public context: string
 
   @column()
   public userId: Number
