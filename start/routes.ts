@@ -38,6 +38,10 @@ Route.group(() => {
     .as('login')
     .middleware('hasBody')
   Route
+    .post('logout', 'UsersController.logout')
+    .as('logout')
+    .middleware('auth')
+  Route
     .post('signup', 'UsersController.signup')
     .as('signup')
     .middleware('hasBody')
