@@ -43,4 +43,5 @@ Server.middleware.register([
 Server.middleware.registerNamed({
   auth: () => import('App/Middleware/Auth'),
   hasBody: () => import('App/Middleware/HasBody'),
+  PostHasAccessExists: () => import('App/Middleware/PostHasAccessExists')
 })
