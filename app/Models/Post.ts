@@ -15,9 +15,12 @@ export default class Post extends BaseModel {
   @column()
   public userId: Number
 
-  @belongsTo(() => User)
+  @belongsTo(() => User, {
+    foreignKey: 'userId',
+    localKey: 'id' // id column on "User" model
+  })
   public user: BelongsTo<typeof User>
-  
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
