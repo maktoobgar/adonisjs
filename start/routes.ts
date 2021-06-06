@@ -59,15 +59,15 @@ Route.group(() => {
   Route
     .delete(':id', 'PostsController.delete')
     .as('delete_post')
-    .middleware('PostHasAccessExists')
+    .middleware('PostHasAccess')
   Route
     .route(':id', ['PUT', 'PATCH'], 'PostsController.update')
     .as('update_post')
-    .middleware('PostHasAccessExists')
+    .middleware('PostHasAccess')
   Route
     .get(':id', 'PostsController.show')
     .as('show_post')
 })
   .prefix('post')
   .where('id', /^[1-9][0-9]*$/)
-  .middleware('auth')
+  .middleware(['auth', 'PostExist'])
