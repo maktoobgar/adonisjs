@@ -24,14 +24,7 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-Route
-  .get('docs/:id', ({ params, request, response, logger }) => {
-    logger.info(params.id)
-    logger.info(request.completeUrl())
-    response.send({'accepted': params.id})
-  })
-  .where('id', /^[1-9][0-9]*$/);
-
+// auth/*
 Route.group(() => {
   Route
     .post('login', 'UsersController.login')
@@ -45,4 +38,36 @@ Route.group(() => {
     .post('signup', 'UsersController.signup')
     .as('signup')
     .middleware('hasBody')
-}).prefix('auth')
+})
+  .prefix('auth')
+
+// posts/*
+Route.group(() => {
+  Route
+    .get('', 'PostsController.list')
+    .as('list_posts')
+  Route
+    .post('', 'PostsController.create')
+    .as('create_post')
+    .middleware('hasBody')
+})
+  .prefix('posts')
+  .middleware('auth')
+
+// post/*
+Route.group(() => {
+  Route
+    .delete(':id', 'PostsController.delete')
+    .as('delete_post')
+    .middleware('PostHasAccessExists')
+  Route
+    .route(':id', ['PUT', 'PATCH'], 'PostsController.update')
+    .as('update_post')
+    .middleware('PostHasAccessExists')
+  Route
+    .get(':id', 'PostsController.show')
+    .as('show_post')
+})
+  .prefix('post')
+  .where('id', /^[1-9][0-9]*$/)
+  .middleware('auth')
