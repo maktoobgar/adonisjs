@@ -30,11 +30,10 @@ export default class SignupValidator {
 
 	public messages = {
 		'required': '{{ field }} is required',
-		'username.unique': 'the provided username already has taken, choose another one',
+		'unique': 'the provided {{ field }} already exists, choose another one',
 		'username.regex': 'just alphabet, \'_\' and \'-\' characters are allowed',
 		'username.minLength': 'minimum of allowed length for username is 5 characters',
 		'username.maxLength': 'maximum of allowed length for username is 64 characters',
-		'email.unique': 'the provided email already has taken, choose another one',
 		'email.email': 'please provide a valid email instead',
 		'email.maxLength': 'maximum of allowed length for email is 64 characters',
 		'password.maxLength': 'maximum of length for password is 128 characters'
